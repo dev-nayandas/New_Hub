@@ -57,7 +57,8 @@ const displayNews = news=>{
         
 
        <div/>
-       <button class="btn btn-secondary ms-5">Know Details</button>
+       <button data-bs-toggle="modal" data-bs-target="#phoneDetailsModal" onclick="loadModalInfo('${newsItem._id}')" class="btn btn-secondary ms-5">Know Details</button>
+       
           </div>
         </div>
       </div>
@@ -68,6 +69,25 @@ const displayNews = news=>{
     })
 
 }
+
+const loadModalInfo = (_Id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${_Id}`;
+    console.log(url);
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayModal(data.data[0]))
+}
+
+const displayModal = modal => {
+    const modalTitle = document.getElementById('phoneDetailsModalLabel');
+    modalTitle.innerText = modal.title;
+    const modaldescriptions = document.getElementById('modaldescription');
+    modaldescriptions.innerText = modal.author;
+
+ console.log(modal.author.name)
+}
+
+
 
 // loadCategoryById()
 
