@@ -82,7 +82,13 @@ const displayModal = modal => {
     const modalTitle = document.getElementById('phoneDetailsModalLabel');
     modalTitle.innerText = modal.title;
     const modaldescriptions = document.getElementById('modaldescription');
-    modaldescriptions.innerText = modal.author;
+    modaldescriptions.innerText = modal.details;
+    const infoDiv = document.getElementById('otherInfo');
+    infoDiv.innerHTML= `
+        <h5>Total View ${modal.total_view}, Badges: ${modal.rating.badge} </h5>
+        <p>Author : ${modal.author.name ? modal.author.name : 'No Data Found'},  Published date : ${modal.author.published_date}</p>
+        
+    `;
 
  console.log(modal.author.name)
 }
