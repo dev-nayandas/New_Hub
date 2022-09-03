@@ -47,9 +47,17 @@ const displayNews = news=>{
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title">${newsItem.title}}</h5>
+            <p class="card-text">${newsItem.details.slice(0,300 ) + ' ...'}</p>
+            
+       <div class="d-flex">
+       <img id="authorImg" src="${newsItem.author.img}" />
+       <h5 class="card-text p-2"><small class="text-muted">${newsItem.author.name}</small></h5>
+       <h6 class="card-text p-2 ms-5"><small class="text-muted">Total view  <span class="text-primary"> ${newsItem.total_view}</span> </small></></h6>
+        
+
+       <div/>
+       <button class="btn btn-secondary ms-5">Know Details</button>
           </div>
         </div>
       </div>
