@@ -37,6 +37,8 @@ const displayNews = news=>{
     newsContainer.innerHTML = '';
     
     news.forEach(newsItem => {
+      const  categoryAmount = document.getElementById('categoryLength');
+      categoryAmount.innerText = `${news.length} item found for this category`;
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
         newsDiv.classList.add('mb-3');
@@ -85,8 +87,9 @@ const displayModal = modal => {
     modaldescriptions.innerText = modal.details;
     const infoDiv = document.getElementById('otherInfo');
     infoDiv.innerHTML= `
-        <h5>Total View ${modal.total_view}, Badges: ${modal.rating.badge} </h5>
-        <p>Author : ${modal.author.name ? modal.author.name : 'No Data Found'},  Published date : ${modal.author.published_date}</p>
+         <img src="${modal.thumbnail_url}" class="rounded mx-auto d-block mb-4" alt="...">
+        <h5>Total View : ${modal.total_view ? modal.total_view : 'No Data Found'}, Badges : ${modal.rating.badge} </h5>
+        <h6>Author : ${modal.author.name ? modal.author.name : 'No Data Found'},  Published date : ${modal.author.published_date}</h6>
         
     `;
 
