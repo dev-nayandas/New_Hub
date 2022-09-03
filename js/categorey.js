@@ -12,7 +12,7 @@ const displayCategory = categories => {
            categoryList.innerHTML= `
            
            <li class="nav-item">
-           <a class="nav-link " aria-current="page" href="#">${category.category_name}</a>
+           <a onclick=loadCategoryBy() class="nav-link " aria-current="page" href="#">${category.category_name}</a>
             </li>
 
            `;
@@ -21,3 +21,10 @@ const displayCategory = categories => {
 }
 
 loadCategory()
+
+
+const loadCategoryBy =() =>{
+    fetch('https://openapi.programming-hero.com/api/news/categories')
+    .then(res => res.json())
+    .then(data => console.log('hello'))
+}
