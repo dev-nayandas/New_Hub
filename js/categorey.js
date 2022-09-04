@@ -5,6 +5,8 @@ const loadCategory =() =>{
 }
 
 const displayCategory = categories => {
+        
+        
         const categoryContainer = document.getElementById('category-container')
         categories.forEach(category => {
            const categoryList = document.createElement('li');
@@ -18,6 +20,9 @@ const displayCategory = categories => {
            `;
            categoryContainer.appendChild(categoryList);
         })
+        // categories.sort((a, b)=>{
+        //   return b.total_view-a.total_view;
+        // })
 }
 
 loadCategory()
@@ -33,6 +38,10 @@ const loadCategoryById =(categoryId) =>{
 }
 
 const displayNews = news=>{
+
+    news.sort((a,b)=>{
+      return b.total_view - a.total_view;
+    })
     const newsContainer = document.getElementById('newsContainer');
     console.log(news);
     newsContainer.innerHTML = '';
